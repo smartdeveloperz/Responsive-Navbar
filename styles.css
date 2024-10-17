@@ -1,0 +1,173 @@
+/* lets add some global styles */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* lets add the background and style the body */
+body{
+  font-family: Arial, sans-serif;
+  background:
+  linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), /*This add the transparent effect*/
+  url('./images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh; /*This ensures that the body takes up the full viewport height*/
+  margin: 0;
+  padding: 0;
+}
+
+/* Now we style the Navbar */
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: rgba(0,0,0,0.5);
+  position: relative;
+}
+
+/* Lets work on the logo */
+.logo{
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* let us use keyframes to achieve that effect */
+@keyframes spin {
+  from{
+    transform: rotate(0deg);/*Meaning it should start from 0 degrees*/
+  }
+  to{
+    transform: rotate(360deg);/*We all know circumference of a circle is 360 degrees here it end at 360 degrees */
+  }
+}
+.material-symbols-outlined{
+  display: inline-block;
+  animation: spin 3s linear infinite;
+}
+
+/* Now the Nav Links right */
+
+.nav-links{
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li{
+  margin: 0 15px;
+}
+
+.nav-links a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Now the Hamburger menu */
+.menu-toggle{
+  display: none;
+}
+
+.hamburger{
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger .line{
+width: 25px;
+height: 3px;
+background-color: #fff;
+margin: 4px 0;
+transition: all 0.3s ease;
+}
+
+/* lets turn the menu for mobile first so that we can see the hamburger we are working on */
+
+/* Adding some media queries */
+@media (max-width: 768px) {
+   .hamburger{
+    display: flex;
+   }
+  .nav-links{
+    display: none;
+    position: absolute;
+    top: 30px;
+    width: 90%;
+    height: 60vh;
+    border-radius: 10px;
+    background-color: rgba(14,14,16,0.5);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(10%);
+    transition: transform 0.3s ease-in-out;
+  }
+  a:hover{
+    color: rgb(33,27,27);
+    font-weight: bolder;
+    padding-left: 50px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  /* Now lets show the menu when its checked or clicked okay */
+  .menu-toggle:checked ~ .nav-links {
+    display: flex; /* Display the menu when checked */
+}
+/* Now lets focus on the Close icon. When the hamburger icon is clicked it should change to the close icon */
+
+.menu-toggle:checked + .hamburger .line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 10px);
+}
+.menu-toggle:checked + .hamburger .line:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle:checked + .hamburger .line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -10px);
+}
+.nav-links li{
+  margin: 20px 0;
+}
+}
+
+/* Lets style the section now */
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: #fff;
+  gap: 10px;
+}
+
+/* Adding media queries for the screen sizes */
+
+@media screen and (min-width: 768px) {
+  h1{
+    font-size: 4rem;
+    text-transform: uppercase;
+  }
+  p{
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1{
+    font-size: 2.2rem;
+    text-transform: uppercase;
+  }
+  p{
+    font-size: 2rem;
+  }
+}
+
+p{
+  font-weight: bold;
+}
